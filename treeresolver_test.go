@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"reflect"
 	"testing"
 )
@@ -70,10 +69,7 @@ func TestResolver(t *testing.T) {
 	}
 
 	for _, c := range cases {
-		fmt.Println(c.in)
 		got := ResolveDependencies(c.in.dependencies, c.in.targetproject)
-		fmt.Println(got)
-		fmt.Println(c.want)
 
 		if !reflect.DeepEqual(got, c.want) {
 			t.Errorf("ResolveDependencies(%v, %s) = %v; want %v", c.in.dependencies, c.in.targetproject, got, c.want)
