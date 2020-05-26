@@ -17,12 +17,13 @@ func ResolveDependencies(projectDependencies map[string][]string, targetProject 
 
 func resolveDependencies(projectDependencies map[string][]string, currentProject string) map[string]bool {
 	dependencySet := make(map[string]bool)
-	dependencySet[currentProject] = true
 
 	currentProjectDependencies, ok := projectDependencies[currentProject]
 	if !ok {
 		return dependencySet
 	}
+
+	dependencySet[currentProject] = true
 
 	for _, dependency := range currentProjectDependencies {
 		foundDependencies := resolveDependencies(projectDependencies, dependency)
