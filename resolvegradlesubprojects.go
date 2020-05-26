@@ -37,10 +37,8 @@ func main() {
 	}
 
 	allProjectsDependencies := CreateDependencyMap(gradleFiles)
-	fmt.Println(allProjectsDependencies)
 
 	allDependencies := ResolveDependencies(allProjectsDependencies, subproject)
-	fmt.Println(allDependencies)
 
 	fmt.Println(strings.Join(allDependencies, " "))
 }
