@@ -1,3 +1,3 @@
-module github.com/Artamus/gradle-subproject-resolver
+module github.com/Qminder/gradle-subproject-resolver
 
 go 1.14
