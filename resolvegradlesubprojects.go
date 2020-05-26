@@ -15,7 +15,6 @@ func main() {
 	}
 
 	subproject := os.Args[1]
-	fmt.Printf("Looking for all subproject dependencies for %s\n", subproject)
 
 	dir, err := os.Getwd()
 	if err != nil {
