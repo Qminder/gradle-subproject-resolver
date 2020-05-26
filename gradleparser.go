@@ -14,7 +14,7 @@ func CreateDependencyMap(gradleFiles map[string]string) map[string][]string {
 	return dependencyMap
 }
 
-func readDependencies(contents string)[]string {
+func readDependencies(contents string) []string {
 	projectDependencies := projectRegex.FindAllStringSubmatch(contents, -1)
 
 	directDependencies := make([]string, 0, len(projectDependencies))

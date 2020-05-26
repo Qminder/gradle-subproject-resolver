@@ -1,8 +1,6 @@
 package main
 
-import (
-	"sort"
-)
+import "sort"
 
 func ResolveDependencies(projectDependencies map[string][]string, targetProject string) []string {
 
