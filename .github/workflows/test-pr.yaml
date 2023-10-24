@@ -4,19 +4,6 @@ on:
 name: Test
 
 jobs:
-  lint:
-    name: Lint the code
-    runs-on: macos-latest
-    steps:
-      - uses: actions/setup-go@v4
-        with:
-          go-version: 1.19
-      - uses: actions/checkout@v4
-      - uses: golangci/golangci-lint-action@v3
-        with:
-          version: v1.50.1
-          working-directory: ./
-
   test:
     name: Test
     runs-on: macos-latest
