@@ -2,7 +2,7 @@ package main
 
 import "regexp"
 
-var projectRegex = regexp.MustCompile(`project\(['"]:?([a-z-?A-Z]+)['"]\)`)
+var projectRegex = regexp.MustCompile(`project\(['"]:?([\w-]+)['"]\)`)
 
 func CreateDependencyMap(gradleFiles map[string]string) map[string][]string {
 	dependencyMap := make(map[string][]string)
