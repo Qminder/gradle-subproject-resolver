@@ -4,22 +4,22 @@ import "regexp"
 
 var projectRegex = regexp.MustCompile(`project\(['"]:?([\w-]+)['"]\)`)
 
-func CreateDependencyMap(gradleFiles map[string]string) map[string][]string {
+func CreateDependencyMap(projectNameToBuildFileContent map[string]string) map[string][]string {
 	dependencyMap := make(map[string][]string)
 
-	for key, val := range gradleFiles {
-		dependencyMap[key] = readDependencies(val)
+	for projectName, projectBuildFileContent := range projectNameToBuildFileContent {
+		dependencyMap[projectName] = readDependencies(projectBuildFileContent)
 	}
 
 	return dependencyMap
 }
 
-func readDependencies(contents string) []string {
-	projectDependencies := projectRegex.FindAllStringSubmatch(contents, -1)
+func readDependencies(projectBuildFileContent string) []string {
+	projectDependencies := projectRegex.FindAllStringSubmatch(projectBuildFileContent, -1)
 
 	directDependencies := make([]string, 0, len(projectDependencies))
-	for _, something := range projectDependencies {
-		directDependencies = append(directDependencies, something[1])
+	for _, projectDependency := range projectDependencies {
+		directDependencies = append(directDependencies, projectDependency[1])
 	}
 
 	return directDependencies
