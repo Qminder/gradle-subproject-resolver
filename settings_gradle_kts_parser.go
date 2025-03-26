@@ -7,9 +7,6 @@ import (
 var includeRegex = regexp.MustCompile(`include\("(?P<ProjectName>[\w-]+)"\)`)
 var projectDirRegex = regexp.MustCompile(`project\(":(?P<ProjectName>[\w-]+)"\).projectDir\s?=\s?file\("(?P<ProjectDir>[\w-/]+)"\)`)
 
-//include("demo-fourth")
-//project(":demo-fourth").projectDir = file("cool/libs/demo-fourth")
-
 func FindAllSubprojects(settingsGradleKtsContent string) map[string]string {
 	projectNames := readIncludedProjectNames(settingsGradleKtsContent)
 	projectDirOverrides := readProjectDirectoryOverrides(settingsGradleKtsContent)
