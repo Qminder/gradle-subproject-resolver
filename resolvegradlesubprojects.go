@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"os"
-	"path/filepath"
 	"strings"
 )
 
@@ -14,19 +13,6 @@ func main() {
 	}
 
 	subproject := os.Args[1]
-
-	dir, err := os.Getwd()
-	if err != nil {
-		fmt.Println("Failed to get working directory", err)
-		os.Exit(1)
-	}
-
-	gradleFilesGlob := filepath.Join(dir, "*", "build.gradle*") // Get all build.gradle or build.gradle.kts files one level deep
-	gradleFilePaths, err := filepath.Glob(gradleFilesGlob)
-	if len(gradleFilePaths) == 0 {
-		fmt.Printf("No gradle files found 1 level deep of %s\n", dir)
-		os.Exit(1)
-	}
 
 	projectNameToBuildFileContent, err := readAllBuildFiles()
 	if err != nil {
