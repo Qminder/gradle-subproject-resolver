@@ -10,6 +10,7 @@ dependencies {
 	implementation(project(":cool-beans"))
 	api(project(":uncool-beans"))
 	implementation("com.beans.cool")
+	implementation(project(":mambo-no-5"))
 	api("org.beans.cooler")
 }
 `
@@ -40,7 +41,7 @@ func TestParser(t *testing.T) {
 				"alpha": newGradleFormatKt,
 			},
 			map[string][]string{
-				"alpha": {"cool-beans", "uncool-beans"},
+				"alpha": {"cool-beans", "uncool-beans", "mambo-no-5"},
 			},
 		},
 		{
